@@ -61,10 +61,29 @@ if (color1 != color2 && color1 == color4) {
 //OK kai 1 ir 2 skiriasi, bet(ir) 1 ir 4  arba 1 ir 3 vienodi
 //NOT OK kitais atvejais
 
+if (color1 != color2 && (color1 == color4 || color1 == color3)) {
+    console.log('OK');
+} else {
+    console.log('NOT OK');
+}
+
 
 //OK kai 1 yra blue, bet(ir) 2 ir 3 ir 4 vienodi
 //NOT OK kitais atvejais
 
+if (color1 == 'blue' && color2 == color3 && color2 == color4) {
+    console.log('OK');
+} else {
+    console.log('NOT OK');
+}
+
 //OK kai 1 ir 2 skiriasi, bet(ir) 3 ir 4 vienodi
 //arba OK kai 1 ir 4 yra blue
 //NOT OK kitais atvejais
+
+if ((color1 != color2 && color3 == color4) ||
+    ('blue' == color1 && 'blue' == color4)) {
+    console.log('OK');
+} else {
+    console.log('NOT OK');
+}
