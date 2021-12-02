@@ -94,6 +94,13 @@ if (asilai + karves) {
     console.log('gyvulių nėra', asilai, karves);
 }
 
+if (asilai != 0 || karves != 0) {
+    console.log('gyvulių yra', asilai, karves);
+} else {
+    console.log('gyvulių nėra', asilai, karves);
+}
+
+
 //8.
 let dalyvis1 = rand(1, 4);
 let dalyvis2 = rand(1, 4);
