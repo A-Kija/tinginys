@@ -31,10 +31,10 @@ if (!(!asilai && !karves)) {
     console.log('gyvulių nėra', asilai, karves);
 }
 
-let color1 = rand(0, 1) ? 'red' : 'blue';
-let color2 = rand(0, 1) ? 'red' : 'blue';
-let color3 = rand(0, 1) ? 'red' : 'blue';
-let color4 = rand(0, 1) ? 'red' : 'blue';
+let color1 = rand(0, 0) ? 'red' : 'blue';
+let color2 = rand(0, 0) ? 'red' : 'blue';
+let color3 = rand(0, 0) ? 'red' : 'blue';
+let color4 = rand(0, 0) ? 'red' : 'blue';
 
 //OK kai 1 ir 2 vienodi arba 3 ir 4 vienodi
 //NOT OK kitais atvejais
