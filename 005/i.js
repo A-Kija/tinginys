@@ -71,6 +71,19 @@ if (task2 > 7) {
 
 console.log('************7***********');
 let task7;
+
+console.log('************7A***********');
 for (let i = 0; i < 5; i++) {
     let randomDigit = rand(10, 20);
+    task7 = randomDigit;
+    console.log(task7);
+}
+
+console.log('************7B***********');
+task7 = 0;
+console.log('=====>', task7);
+for (let i = 0; i < 5; i++) {
+    let randomDigit = rand(10, 20);
+    task7 = task7 + randomDigit;
+    console.log(task7);
 }
