@@ -37,3 +37,40 @@ console.log('************1D***********');
 let sumString3;
 sumString3 = digit1 + ' ' + digit2 + ' ' + digit3 + ' ' + sum;
 console.log(`Skaičių stringas su tarpais yra: ${sumString3}`);
+
+
+console.log('************2***********');
+let task2 = rand(5, 10);
+console.log(`Sugeneruotas skaičius yra: ${task2}`);
+
+console.log('************3***********');
+for (let i = 0; i < 5; i++) {
+    let hello = 'Labas';
+    console.log(hello);
+}
+
+console.log('************4***********');
+for (let i = 0; i < 7; i++) {
+    console.log(task2);
+}
+
+console.log('************5***********');
+for (let i = 0; i < task2; i++) {
+    console.log(task2);
+}
+
+
+console.log('************6***********');
+if (task2 > 7) {
+    for (let i = 0; i < task2; i++) {
+        console.log(task2);
+    }
+} else {
+    console.log(`Skaičius ${task2} yra NEdidesnis nei 7`)
+}
+
+console.log('************7***********');
+let task7;
+for (let i = 0; i < 5; i++) {
+    let randomDigit = rand(10, 20);
+}
