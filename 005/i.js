@@ -79,11 +79,34 @@ for (let i = 0; i < 5; i++) {
     console.log(task7);
 }
 
+
 console.log('************7B***********');
 task7 = 0;
-console.log('=====>', task7);
 for (let i = 0; i < 5; i++) {
     let randomDigit = rand(10, 20);
     task7 = task7 + randomDigit;
-    console.log(task7);
 }
+console.log(task7);
+
+
+console.log('************7C***********');
+task7 = '';
+for (let i = 0; i < 5; i++) {
+    let randomDigit = rand(10, 20);
+    task7 = task7 + randomDigit + ' ';
+}
+console.log(task7);
+
+
+
+console.log('************7D***********');
+task7 = '';
+let task7Sum = 0;
+for (let i = 0; i < 5; i++) {
+    let randomDigit = rand(10, 20);
+    task7 = task7 + randomDigit + ' ';
+    task7Sum = task7Sum + randomDigit;
+}
+
+task7 = task7 + task7Sum;
+console.log(task7);
