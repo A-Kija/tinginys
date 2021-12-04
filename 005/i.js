@@ -110,3 +110,22 @@ for (let i = 0; i < 5; i++) {
 
 task7 = task7 + task7Sum;
 console.log(task7);
+
+console.log('************KARTOJIMAS***********');
+
+
+let h = 0;
+let s = 0;
+
+for (let i = 0; i < 7; i++) {
+    let coin = rand(0, 1) ? 'H' : 'S';
+    // 'H' == coin ? h++ : s++;
+    if ('H' == coin) {
+        h++;
+    } else {
+        s++;
+    }
+    console.log(coin);
+}
+
+console.log(`Rezultatas. S buvo ${s}, o H buvo ${h}`);
