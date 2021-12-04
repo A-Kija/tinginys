@@ -138,3 +138,15 @@ do {
     console.log(suma11, ciklu11);
     // } while(suma11 > 20 && ciklu11 > 11)
 } while (suma11 < 20 || ciklu11 < 11)
+
+
+console.log('************NR 12***********');
+
+let nelyginiai = 0;
+do {
+    let randomas = rand(0, 10);
+    console.log(randomas);
+    if (randomas % 2 != 0) {
+        nelyginiai++;
+    }
+} while (nelyginiai < 3);
