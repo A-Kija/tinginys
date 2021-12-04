@@ -123,3 +123,18 @@ do {
     console.log(randomas10);
 } while (randomas10 != 5 && randomas10 != 7);
 console.log('Prasisuko: ', prasisuko10);
+
+
+console.log('************NR 11***********');
+
+let suma11 = 0;
+let ciklu11 = 0;
+
+do {
+    let randomas = rand(0, 10);
+    suma11 += randomas;
+    // suma11 = suma11 + randomas;
+    ciklu11++;
+    console.log(suma11, ciklu11);
+    // } while(suma11 > 20 && ciklu11 > 11)
+} while (suma11 < 20 || ciklu11 < 11)
