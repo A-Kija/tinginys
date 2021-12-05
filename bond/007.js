@@ -4,7 +4,7 @@ function rand(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-console.log('007 007 007 007 -8- 007 007 007 007');
+console.log('008 008 008 008 -8- 008 008 008 008');
 
 /*
 && ===> ||
@@ -27,7 +27,7 @@ do {
 } while (skaitiklis >= 12);
 
 
-console.log('007 007 007 007 -8B- 007 007 007 007');
+console.log('008 008 008 008 -8B- 008 008 008 008');
 
 let pirstukaiB = 0;
 
@@ -41,7 +41,7 @@ do {
 console.log('Viso ciklų:', pirstukaiB);
 
 
-console.log('007 007 007 007 -8C- 007 007 007 007');
+console.log('008 008 008 008 -8C- 008 008 008 008');
 let suma7C = 0;
 let skaitiklisC;
 do {
@@ -55,7 +55,7 @@ do {
 console.log(suma7C);
 
 
-console.log('007 007 007 007 -8D- 007 007 007 007');
+console.log('008 008 008 008 -8D- 008 008 008 008');
 let suma7D = 0;
 let skaitiklisD;
 let atmesta = 0;
@@ -73,7 +73,7 @@ console.log(suma7D, atmesta);
 
 
 
-console.log('007 007 007 007 -8E- 007 007 007 007');
+console.log('008 008 008 008 -8E- 008 008 008 008');
 let skaitiklisE;
 let poriniai = 0;
 let neporiniai = 0;
@@ -89,7 +89,7 @@ console.log(poriniai, neporiniai);
 
 
 
-console.log('007 007 007 007 -8F- 007 007 007 007');
+console.log('008 008 008 008 -8F- 008 008 008 008');
 
 
 
@@ -107,7 +107,69 @@ do {
         pirstukaiF++;
     } while (skaitiklisF >= 12);
     console.log('mazas prasisuko', pirstukaiF);
-
 } while (pirstukaiF <= 20);
 
 console.log(statMaza, statDid);
+
+
+
+console.log('008 008 008 008 -9A- 008 008 008 008');
+
+let random9A;
+let didelis9A = 0;
+let mazas9A = 0;
+do {
+    didelis9A++;
+    random9A = rand(5, 10);
+    for (let i = 0; i < random9A; i++) {
+        mazas9A++;
+    }
+} while (random9A != 5);
+
+console.log(didelis9A, mazas9A);
+
+
+console.log('008 008 008 008 -9B- 008 008 008 008');
+
+let random9B;
+let didelis9B = 0;
+let mazas9B = 0;
+let trys9B = 0;
+do {
+    didelis9B++;
+    random9B = rand(5, 10);
+    for (let i = 0; i < random9B; i++) {
+        mazas9B++;
+    }
+
+    if (random9B == 5) {
+        trys9B++;
+    }
+
+} while (trys9B != 3);
+
+console.log(didelis9B, mazas9B);
+
+
+console.log('008 008 008 008 -9C- 008 008 008 008');
+
+let random9C;
+let didelis9C = 0;
+let mazas9C = 0;
+let trys9C = 0;
+do {
+    didelis9C++;
+    random9C = rand(5, 10);
+    for (let i = 0; i < random9C; i++) {
+        mazas9C++;
+    }
+
+    if (random9C == 5) {
+        trys9C++;
+    } else {
+        trys9C = 0;
+    }
+
+} while (trys9C != 3);
+
+console.log(didelis9C, mazas9C);
