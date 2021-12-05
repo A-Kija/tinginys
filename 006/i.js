@@ -150,3 +150,16 @@ do {
         nelyginiai++;
     }
 } while (nelyginiai < 3);
+
+console.log('************NR 13***********');
+
+let skaicius131;
+let skaicius132;
+let ciklu13 = 0;
+do {
+    skaicius131 = rand(0, 10);
+    skaicius132 = rand(0, 10);
+    ciklu13 = ciklu13 + 1
+
+    console.log(skaicius131, skaicius132, ciklu13);
+} while (skaicius131 != skaicius132);
