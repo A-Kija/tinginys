@@ -153,6 +153,24 @@ do {
         pirmaDaugiau2 = index;
     }
     index++;
-} while (index <= masyvas.length && typeof pirmaDaugiau2 == 'undefined')
+} while (typeof pirmaDaugiau2 == 'undefined' && index <= masyvas.length)
 
 console.log(pirmaDaugiau, pirmaDaugiau2);
+
+console.log('************** 3 ***************');
+
+let raides = ['A', 'B', 'C', 'D'];
+let masyvas200 = [];
+let raidziuKiekis = [0, 0, 0, 0];
+
+for (let i = 0; i < 200; i++) {
+    masyvas200.push(raides[rand(0, 3)]);
+}
+
+for (let i = 0; i < masyvas200.length; i++) {
+    let raidesIndeksas = raides.indexOf(masyvas200[i]);
+    raidziuKiekis[raidesIndeksas]++;
+}
+
+
+console.log(masyvas200, raidziuKiekis);
