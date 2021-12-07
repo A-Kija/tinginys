@@ -104,7 +104,7 @@ console.log(masyvas);
 let naujasMasyvasPoriniai = [];
 let naujasMasyvasNeporiniai = [];
 
-console.log('************** 2 E ***************');
+console.log('************** 2 F ***************');
 
 for (let i = 0; i < masyvas.length; i++) {
     if (i % 2 == 0) {
@@ -124,3 +124,13 @@ for (let i = 0; i < masyvas.length; i += 2) {
 
 
 console.log(naujasMasyvasNeporiniai, naujasMasyvasPoriniai);
+
+
+console.log('************** 2 G ***************');
+
+for (let i = 0; i < masyvas.length; i += 2) {
+    if (masyvas[i] > 15) {
+        masyvas[i] = 0;
+    }
+}
+console.log(masyvas);
