@@ -81,3 +81,46 @@ for (let i = 0; i < masyvas.length; i++) {
     }
 }
 console.log(poriniuSuma, poriniuSuma1);
+
+console.log('************** 2 D ***************');
+
+let naujasMasyvas1 = [];
+for (let i = 0; i < masyvas.length; i++) {
+    let skirtumas = masyvas[i] - i;
+    naujasMasyvas1.push(skirtumas);
+}
+console.log(naujasMasyvas1);
+
+
+console.log('************** 2 E ***************');
+
+for (let i = 0; i < 10; i++) {
+    // let randomas = rand(5, 25);
+    masyvas.push(rand(5, 25));
+}
+
+console.log(masyvas);
+
+let naujasMasyvasPoriniai = [];
+let naujasMasyvasNeporiniai = [];
+
+console.log('************** 2 E ***************');
+
+for (let i = 0; i < masyvas.length; i++) {
+    if (i % 2 == 0) {
+        naujasMasyvasPoriniai.push(masyvas[i]);
+    } else {
+        naujasMasyvasNeporiniai.push(masyvas[i]);
+    }
+}
+
+naujasMasyvasPoriniai = [];
+naujasMasyvasNeporiniai = [];
+
+for (let i = 0; i < masyvas.length; i += 2) {
+    naujasMasyvasPoriniai.push(masyvas[i]);
+    naujasMasyvasNeporiniai.push(masyvas[i + 1]);
+}
+
+
+console.log(naujasMasyvasNeporiniai, naujasMasyvasPoriniai);
