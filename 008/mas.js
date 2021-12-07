@@ -134,3 +134,25 @@ for (let i = 0; i < masyvas.length; i += 2) {
     }
 }
 console.log(masyvas);
+
+console.log('************** 2 H ***************');
+
+let pirmaDaugiau;
+
+for (let i = 0; i < masyvas.length; i++) {
+    if (masyvas[i] > 10) {
+        pirmaDaugiau = i;
+        break;
+    }
+}
+
+let pirmaDaugiau2;
+let index = 0;
+do {
+    if (masyvas[index] > 10) {
+        pirmaDaugiau2 = index;
+    }
+    index++;
+} while (index <= masyvas.length && typeof pirmaDaugiau2 == 'undefined')
+
+console.log(pirmaDaugiau, pirmaDaugiau2);
