@@ -161,6 +161,7 @@ do {
     didelis9C++;
     random9C = rand(5, 10);
     for (let i = 0; i < random9C; i++) {
+        break;
         mazas9C++;
     }
 
