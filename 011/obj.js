@@ -5,7 +5,6 @@ function rand(min, max) {
 }
 
 
-
 const object = {};
 const array = [];
 
