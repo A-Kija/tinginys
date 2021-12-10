@@ -61,7 +61,52 @@ for (let i = 0; i < 33; i++) {
     kvartalas[i].hasDog = !rand(0, 1);
 }
 
-console.log(kvartalas);
+const dogs = ['Pifa', 'Šarikas', 'Bobikė', 'Šuo Laika kosmonautas', 'Brisius'];
+for (let i = 0; i < kvartalas.length; i++) {
+    if (kvartalas[i].hasDog) {
+        kvartalas[i].dogName = dogs[rand(0, dogs.length - 1)];
+    }
+}
+
+let dogCounter = 0;
+for (let i = 0; i < kvartalas.length; i++) {
+    if (kvartalas[i].hasDog === true) {
+        dogCounter++;
+    }
+}
+
+
+const colorCounter = { ugly: 0, blue: 0, red: 0 };
+let maxColor;
+let maxColorFancy;
+for (let i = 0; i < kvartalas.length; i++) {
+    const color = kvartalas[i].color;
+    colorCounter[color]++;
+    // jeigu color == ugly
+    // colorCounter.ugly
+}
+
+if (colorCounter.ugly > colorCounter.blue && colorCounter.ugly > colorCounter.red) {
+    maxColor = 'ugly';
+} else if (colorCounter.blue > colorCounter.ugly && colorCounter.blue > colorCounter.red) {
+    maxColor = 'blue';
+} else {
+    maxColor = 'red';
+}
+
+const fancy = [];
+fancy[colorCounter.ugly] = 'ugly';
+fancy[colorCounter.blue] = 'blue';
+fancy[colorCounter.red] = 'red';
+maxColorFancy = fancy[Math.max(colorCounter.ugly, colorCounter.blue, colorCounter.red)];
+
+
+// console.log(fancy);
+
+
+
+
+console.log(kvartalas, dogCounter, colorCounter, maxColor, maxColorFancy);
 
 /*
 0   0
