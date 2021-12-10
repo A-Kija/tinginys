@@ -88,5 +88,3 @@ console.log(kvartalas);
 
 
 let myNum = 38;
-
-console.log(myNum.toString(2))
