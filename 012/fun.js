@@ -10,7 +10,7 @@ function sum(a, b) {
 }
 
 function calculator(a, b, c) {
-    console.log(eval(a + c + b));
+    console.log(eval(a + c + b)); // geriau nereikia
 }
 
 function calculatorIf(a, b, c) {
@@ -25,7 +25,22 @@ function calculatorIf(a, b, c) {
     } else {
         console.log('error');
     }
+}
 
+function calculatorSw(a, b, c) {
+    switch (c) {
+        case '-':
+            console.log(a - b);
+            break;
+        case '+':
+            console.log(a + b);
+        case '*':
+            console.log(a * b);
+        case '/':
+            console.log(a / b);
+        default:
+            console.log('error');
+    }
 }
 
 
@@ -45,4 +60,4 @@ sum(6, 6);
 sum(18, 18);
 sum(22, 0);
 
-calculatorIf(5, 8, '/');
+calculatorSw(5, 8, '+');
