@@ -131,9 +131,35 @@ const baras2 = {...baras }
 
 baras2.kedes = 1000;
 
-
 baras.kdd();
 baras2.kdd();
 
-
 console.log(baras, baras2);
+
+const st = 'Labas';
+
+console.log(typeof st);
+console.log(st);
+
+console.log(st.charAt(0));
+
+
+const stObj = new String('Gandras');
+
+// console.log(stObj + '***');
+
+String.prototype.hello = function() {
+    return 'Hello!!!';
+}
+
+
+String.prototype.addStar = function() {
+    return this.valueOf() + '***';
+}
+
+
+let stringas = 'Bla Bla';
+
+console.log(stringas.addStar());
+
+// console.log(stringas.hello());
