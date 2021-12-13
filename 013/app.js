@@ -32,4 +32,43 @@ function doDisco() {
 }
 
 
-setInterval(doDisco, 1000);
+// setInterval(doDisco, 1000);
+
+
+const africa = document.querySelector('h2');
+const america = document.querySelector('h2 + h2');
+
+console.log(africa, america);
+
+africa.classList.add('blue');
+africa.style.backgroundColor = 'green';
+
+america.classList.add('green');
+america.style.backgroundColor = 'blue';
+
+
+
+setInterval(function() {
+    africa.style.backgroundColor =
+        africa.style.backgroundColor == 'green' ? 'blue' : 'green';
+    america.style.backgroundColor =
+        america.style.backgroundColor == 'green' ? 'blue' : 'green';
+    africa.classList.toggle('blue');
+    africa.classList.toggle('green');
+    america.classList.toggle('blue');
+    america.classList.toggle('green');
+}, 500);
+
+
+
+
+const button = document.querySelector('button');
+
+button.addEventListener('click', function(e) {
+    console.log('Ja ja!', e);
+})
+
+
+
+
+console.log(button);
