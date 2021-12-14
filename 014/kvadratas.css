@@ -1,0 +1,44 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rosybrown;
+    margin: 0;
+}
+
+.kvadratas {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    position: absolute;
+    top: 0;
+    transition: all 1s;
+    margin: 20px;
+}
+
+.kvadratas2 {
+    width: 100px;
+    height: 100px;
+    background-color: lightgreen;
+    position: absolute;
+    top: 120px;
+    transition: all 1s;
+    margin: 20px;
+}
+
+.kvadratas2.left {
+    left: 0;
+}
+
+.kvadratas2.right {
+    left: calc(100% - 140px);
+}
+
+.kvadratas3 {
+    width: 100px;
+    height: 100px;
+    background-color: darkred;
+    position: absolute;
+    top: 240px;
+    transition: all 1s;
+    margin: 20px;
+}
