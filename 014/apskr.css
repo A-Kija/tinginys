@@ -1,0 +1,26 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rosybrown;
+    margin: 0;
+    overflow: hidden;
+}
+
+.apskr {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    position: absolute;
+    transition: all 1s cubic-bezier(.25, 1.55, 1, -1.68);
+    border-radius: 50%;
+}
+
+.rez {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 60px;
+    font-family: 'Courier New', Courier, monospace;
+    color: darkred;
+    font-weight: bold;
+}
