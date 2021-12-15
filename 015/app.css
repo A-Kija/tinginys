@@ -35,3 +35,12 @@ body {
     left: 700px;
     top: 700px;
 }
+
+i {
+    font-size: 80px;
+    line-height: 1.5;
+    margin: 700px;
+    color: darkslateblue;
+    border: 2px solid dimgrey;
+    padding: 10px;
+}
