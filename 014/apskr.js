@@ -1,4 +1,4 @@
-function rand(min, max) {
+const rand = (min, max) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -7,7 +7,7 @@ function rand(min, max) {
 let intViewportHeight = window.innerHeight - 100;
 let intViewportWidth = window.innerWidth - 100;
 
-function go() {
+const go = () => {
     a.style.left = rand(0, intViewportWidth) + 'px';
     a.style.top = rand(0, intViewportHeight) + 'px';
 }
@@ -18,7 +18,7 @@ let rez = 0;
 rezDiv.innerText = rez;
 
 const reset = document.querySelector('button');
-reset.addEventListener('click', function(e) {
+reset.addEventListener('click', e => {
     e.stopPropagation();
     rez = 0;
     rezDiv.innerText = rez;
@@ -26,13 +26,13 @@ reset.addEventListener('click', function(e) {
 });
 
 
-a.addEventListener('click', function(e) {
+a.addEventListener('click', e => {
     e.stopPropagation();
     a.style.display = 'none';
 });
 
 
-document.querySelector('body').addEventListener('click', function() {
+document.querySelector('body').addEventListener('click', () => {
     rezDiv.innerText = ++rez;
 })
 
