@@ -43,9 +43,11 @@ document.querySelector('body').addEventListener('click', () => {
 
 setInterval(() => {
     for (let i = 0; i < a.length; i++) {
-        go(i);
+        setTimeout(() => {
+            go(i);
+        }, rand(0, 500));
     }
-}, 3000);
+}, 1000);
 
 for (let i = 0; i < a.length; i++) {
     go(i);
