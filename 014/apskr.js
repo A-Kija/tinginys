@@ -7,12 +7,13 @@ const rand = (min, max) => {
 let intViewportHeight = window.innerHeight - 100;
 let intViewportWidth = window.innerWidth - 100;
 
-const go = () => {
-    a.style.left = rand(0, intViewportWidth) + 'px';
-    a.style.top = rand(0, intViewportHeight) + 'px';
+const go = i => {
+    a[i].style.left = rand(0, intViewportWidth) + 'px';
+    a[i].style.top = rand(0, intViewportHeight) + 'px';
 }
 
-const a = document.querySelector('.apskr');
+const a = document.querySelectorAll('.apskr');
+
 const rezDiv = document.querySelector('.rez');
 let rez = 0;
 rezDiv.innerText = rez;
@@ -22,19 +23,30 @@ reset.addEventListener('click', e => {
     e.stopPropagation();
     rez = 0;
     rezDiv.innerText = rez;
-    a.style.display = null;
+    for (let i = 0; i < a.length; i++) {
+        a[i].style.display = null;
+    }
 });
 
-
-a.addEventListener('click', e => {
-    e.stopPropagation();
-    a.style.display = 'none';
-});
+for (let i = 0; i < a.length; i++) {
+    a[i].addEventListener('click', e => {
+        e.stopPropagation();
+        a[i].style.display = 'none';
+    });
+}
 
 
 document.querySelector('body').addEventListener('click', () => {
     rezDiv.innerText = ++rez;
 })
 
-setInterval(go, 1000);
-go();
+
+setInterval(() => {
+    for (let i = 0; i < a.length; i++) {
+        go(i);
+    }
+}, 3000);
+
+for (let i = 0; i < a.length; i++) {
+    go(i);
+}
