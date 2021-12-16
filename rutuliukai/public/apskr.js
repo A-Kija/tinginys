@@ -22,6 +22,9 @@ var go = function go(i) {
 };
 
 var a = document.querySelectorAll('.apskr');
+var ballsLeftDiv = document.querySelector('.counter strong');
+var ballsLeft = 0;
+ballsLeftDiv.innerText = ballsLeft;
 var rezDiv = document.querySelector('.clicks strong');
 var rez = 0;
 rezDiv.innerText = rez;

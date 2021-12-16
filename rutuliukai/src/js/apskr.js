@@ -14,6 +14,10 @@ const go = i => {
 
 const a = document.querySelectorAll('.apskr');
 
+const ballsLeftDiv = document.querySelector('.counter strong');
+let ballsLeft = 0;
+ballsLeftDiv.innerText = ballsLeft;
+
 const rezDiv = document.querySelector('.clicks strong');
 let rez = 0;
 rezDiv.innerText = rez;
