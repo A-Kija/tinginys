@@ -15,7 +15,7 @@ const go = i => {
 const a = document.querySelectorAll('.apskr');
 
 const ballsLeftDiv = document.querySelector('.counter strong');
-let ballsLeft = 0;
+let ballsLeft = a.length;
 ballsLeftDiv.innerText = ballsLeft;
 
 const rezDiv = document.querySelector('.clicks strong');
@@ -35,6 +35,8 @@ reset.addEventListener('click', e => {
 for (let i = 0; i < a.length; i++) {
     a[i].addEventListener('click', e => {
         e.stopPropagation();
+        ballsLeft--;
+        ballsLeftDiv.innerText = ballsLeft;
         a[i].style.display = 'none';
     });
 }
@@ -47,7 +49,7 @@ document.querySelector('body').addEventListener('click', () => {
 })
 
 
-setInterval(() => {
+const intervalID = setInterval(() => {
     for (let i = 0; i < a.length; i++) {
         setTimeout(() => {
             go(i);
@@ -57,4 +59,12 @@ setInterval(() => {
 
 for (let i = 0; i < a.length; i++) {
     go(i);
+}
+
+console.log(intervalID);
+
+setTimeout(stop, 10000);
+
+function stop() {
+    clearInterval(intervalID)
 }

@@ -23,7 +23,7 @@ var go = function go(i) {
 
 var a = document.querySelectorAll('.apskr');
 var ballsLeftDiv = document.querySelector('.counter strong');
-var ballsLeft = 0;
+var ballsLeft = a.length;
 ballsLeftDiv.innerText = ballsLeft;
 var rezDiv = document.querySelector('.clicks strong');
 var rez = 0;
@@ -42,6 +42,8 @@ reset.addEventListener('click', function (e) {
 var _loop = function _loop(i) {
   a[i].addEventListener('click', function (e) {
     e.stopPropagation();
+    ballsLeft--;
+    ballsLeftDiv.innerText = ballsLeft;
     a[i].style.display = 'none';
   });
 };
@@ -53,7 +55,7 @@ for (var i = 0; i < a.length; i++) {
 document.querySelector('body').addEventListener('click', function () {
   rezDiv.innerText = ++rez;
 });
-setInterval(function () {
+var intervalID = setInterval(function () {
   var _loop2 = function _loop2(_i) {
     setTimeout(function () {
       go(_i);
@@ -67,6 +69,13 @@ setInterval(function () {
 
 for (var _i2 = 0; _i2 < a.length; _i2++) {
   go(_i2);
+}
+
+console.log(intervalID);
+setTimeout(stop, 10000);
+
+function stop() {
+  clearInterval(intervalID);
 }
 
 /***/ }),
