@@ -1,0 +1,53 @@
+@import 'button';
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: rosybrown;
+    margin: 0;
+    overflow: hidden;
+}
+
+.apskr {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    position: absolute;
+    transition: all 2s cubic-bezier(.25, 1.55, 1, -1.68);
+    border-radius: 50%;
+}
+
+section {
+    height: 100px;
+    background-color: lightcoral;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    .reset {}
+    .clicks {
+        span {
+            font-size: 60px;
+            color: gray;
+        }
+        strong {
+            font-size: 60px;
+            font-family: 'Courier New', Courier, monospace;
+            color: darkred;
+            font-weight: bold;
+        }
+    }
+    .counter {
+        span {
+            font-size: 60px;
+            color: gray;
+        }
+        strong {
+            font-size: 60px;
+            font-family: 'Courier New', Courier, monospace;
+            color: darkred;
+            font-weight: bold;
+        }
+    }
+}

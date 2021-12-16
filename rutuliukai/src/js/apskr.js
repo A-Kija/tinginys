@@ -9,12 +9,12 @@ let intViewportWidth = window.innerWidth - 100;
 
 const go = i => {
     a[i].style.left = rand(0, intViewportWidth) + 'px';
-    a[i].style.top = rand(0, intViewportHeight) + 'px';
+    a[i].style.top = rand(100, intViewportHeight) + 'px';
 }
 
 const a = document.querySelectorAll('.apskr');
 
-const rezDiv = document.querySelector('.rez');
+const rezDiv = document.querySelector('.clicks strong');
 let rez = 0;
 rezDiv.innerText = rez;
 
@@ -36,6 +36,8 @@ for (let i = 0; i < a.length; i++) {
 }
 
 
+
+
 document.querySelector('body').addEventListener('click', () => {
     rezDiv.innerText = ++rez;
 })
@@ -47,7 +49,7 @@ setInterval(() => {
             go(i);
         }, rand(0, 500));
     }
-}, 1000);
+}, 2000);
 
 for (let i = 0; i < a.length; i++) {
     go(i);
