@@ -1,8 +1,5 @@
-const rand = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { rand } from './functions';
+
 
 let intViewportHeight = window.innerHeight - 100;
 let intViewportWidth = window.innerWidth - 100;

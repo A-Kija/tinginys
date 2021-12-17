@@ -1,24 +1,22 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./src/js/apskr.js":
 /*!*************************!*\
   !*** ./src/js/apskr.js ***!
   \*************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-var rand = function rand(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./src/js/functions.js");
 
 var intViewportHeight = window.innerHeight - 100;
 var intViewportWidth = window.innerWidth - 100;
 
 var go = function go(r) {
-  r.style.left = rand(0, intViewportWidth) + 'px';
-  r.style.top = rand(100, intViewportHeight) + 'px';
+  r.style.left = (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(0, intViewportWidth) + 'px';
+  r.style.top = (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(100, intViewportHeight) + 'px';
 };
 
 var a = document.querySelectorAll('.apskr');
@@ -57,7 +55,7 @@ var intervalID = setInterval(function () {
   a.forEach(function (r) {
     setTimeout(function () {
       go(r);
-    }, rand(0, 500));
+    }, (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(0, 500));
   });
 }, 5000); // Start
 
@@ -72,13 +70,30 @@ section.style.backgroundColor = 'black';
 
 /***/ }),
 
+/***/ "./src/js/functions.js":
+/*!*****************************!*\
+  !*** ./src/js/functions.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "rand": () => (/* binding */ rand)
+/* harmony export */ });
+var rand = function rand(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+/***/ }),
+
 /***/ "./src/css/apskr.scss":
 /*!****************************!*\
   !*** ./src/css/apskr.scss ***!
   \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -144,6 +159,18 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				}
 /******/ 			}
 /******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
 /******/ 		};
 /******/ 	})();
 /******/ 	
