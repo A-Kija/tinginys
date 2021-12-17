@@ -10,63 +10,101 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./src/js/functions.js");
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events */ "./src/js/events.js");
 
-var intViewportHeight = window.innerHeight - 100;
-var intViewportWidth = window.innerWidth - 100;
 
-var go = function go(r) {
-  r.style.left = (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(0, intViewportWidth) + 'px';
-  r.style.top = (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(100, intViewportHeight) + 'px';
-};
 
-var a = document.querySelectorAll('.apskr');
-var ballsLeftDiv = document.querySelector('.counter strong');
-var ballsLeft = a.length;
-ballsLeftDiv.innerText = ballsLeft;
-var rezDiv = document.querySelector('.clicks strong');
-var rez = 0;
-rezDiv.innerText = rez;
-var reset = document.querySelector('button');
-reset.addEventListener('click', function (e) {
-  e.stopPropagation();
-  rez = 0;
-  rezDiv.innerText = rez;
-  a.forEach(function (r) {
-    r.style.display = null;
-  });
-  ballsLeft = a.length;
-  ballsLeftDiv.innerText = ballsLeft;
-}); // Pereinam per visus kamuoliukus
+var ballsLeft, rez; // pradinių reikšmių priskyrimas
 
-a.forEach(function (r) {
+ballsLeft = _elements__WEBPACK_IMPORTED_MODULE_1__.a.length;
+_elements__WEBPACK_IMPORTED_MODULE_1__.ballsLeftDiv.innerText = ballsLeft;
+rez = 0;
+_elements__WEBPACK_IMPORTED_MODULE_1__.rezDiv.innerText = rez;
+_elements__WEBPACK_IMPORTED_MODULE_1__.section.style.backgroundColor = 'black'; // pagrindiniai eventai
+
+(0,_events__WEBPACK_IMPORTED_MODULE_2__["default"])(); // pereinam per visus kamuoliukus
+
+_elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
   // pagavimo paspaudimas
   r.addEventListener('click', function (e) {
     e.stopPropagation();
     ballsLeft--;
-    ballsLeftDiv.innerText = ballsLeft;
+    _elements__WEBPACK_IMPORTED_MODULE_1__.ballsLeftDiv.innerText = ballsLeft;
     r.style.display = 'none';
   });
   r.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-});
-document.querySelector('body').addEventListener('click', function () {
-  rezDiv.innerText = ++rez;
-});
-var intervalID = setInterval(function () {
-  a.forEach(function (r) {
+}); // paleidžiam laikrodį
+
+setInterval(function () {
+  _elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
     setTimeout(function () {
-      go(r);
+      (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
     }, (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(0, 500));
   });
-}, 5000); // Start
+}, 5000); // kamuoliukai startinėje pozicijoje
 
-a.forEach(function (r) {
-  go(r);
+_elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
+  (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
 });
+
+/***/ }),
+
+/***/ "./src/js/elements.js":
+/*!****************************!*\
+  !*** ./src/js/elements.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "a": () => (/* binding */ a),
+/* harmony export */   "ballsLeftDiv": () => (/* binding */ ballsLeftDiv),
+/* harmony export */   "rezDiv": () => (/* binding */ rezDiv),
+/* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "section": () => (/* binding */ section)
+/* harmony export */ });
+var a = document.querySelectorAll('.apskr');
+var ballsLeftDiv = document.querySelector('.counter strong');
+var rezDiv = document.querySelector('.clicks strong');
+var reset = document.querySelector('button');
 var section = document.querySelector('section');
-section.addEventListener('click', function (e) {
-  return e.stopPropagation();
-});
-section.style.backgroundColor = 'black';
+
+/***/ }),
+
+/***/ "./src/js/events.js":
+/*!**************************!*\
+  !*** ./src/js/events.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+
+
+var runEvents = function runEvents() {
+  _elements__WEBPACK_IMPORTED_MODULE_0__.reset.addEventListener('click', function (e) {
+    e.stopPropagation();
+    rez = 0;
+    rezDiv.innerText = rez;
+    a.forEach(function (r) {
+      r.style.display = null;
+    });
+    ballsLeft = a.length;
+    ballsLeftDiv.innerText = ballsLeft;
+  });
+  document.querySelector('body').addEventListener('click', function () {
+    rezDiv.innerText = ++rez;
+  });
+  _elements__WEBPACK_IMPORTED_MODULE_0__.section.addEventListener('click', function (e) {
+    return e.stopPropagation();
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (runEvents);
 
 /***/ }),
 
@@ -78,12 +116,31 @@ section.style.backgroundColor = 'black';
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "rand": () => (/* binding */ rand)
+/* harmony export */   "rand": () => (/* binding */ rand),
+/* harmony export */   "go": () => (/* binding */ go),
+/* harmony export */   "ballsLeft": () => (/* binding */ ballsLeft)
 /* harmony export */ });
+/* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+
 var rand = function rand(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+var go = function go(r) {
+  r.style.left = rand(0, window.innerWidth - 100) + 'px';
+  r.style.top = rand(100, window.innerHeight - 100) + 'px';
+};
+var ballsLeft = function ballsLeft() {
+  var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+  if (false === value) {
+    var valueNow = _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText;
+    valueNow--;
+    _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText = valueNow;
+  } else {
+    _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText = value;
+  }
 };
 
 /***/ }),
