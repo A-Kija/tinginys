@@ -37,15 +37,20 @@ reset.addEventListener('click', function (e) {
   for (var i = 0; i < a.length; i++) {
     a[i].style.display = null;
   }
-});
+
+  ballsLeft = a.length;
+  ballsLeftDiv.innerText = ballsLeft;
+}); // Pereinam per visus kamuoliukus
 
 var _loop = function _loop(i) {
+  // pagavimo paspaudimas
   a[i].addEventListener('click', function (e) {
     e.stopPropagation();
     ballsLeft--;
     ballsLeftDiv.innerText = ballsLeft;
     a[i].style.display = 'none';
   });
+  a[i].style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
 };
 
 for (var i = 0; i < a.length; i++) {
@@ -71,12 +76,11 @@ for (var _i2 = 0; _i2 < a.length; _i2++) {
   go(_i2);
 }
 
-console.log(intervalID);
-setTimeout(stop, 10000);
-
-function stop() {
-  clearInterval(intervalID);
-}
+var section = document.querySelector('section');
+section.addEventListener('click', function (e) {
+  return e.stopPropagation();
+});
+section.style.backgroundColor = 'black';
 
 /***/ }),
 

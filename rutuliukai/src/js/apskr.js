@@ -30,15 +30,20 @@ reset.addEventListener('click', e => {
     for (let i = 0; i < a.length; i++) {
         a[i].style.display = null;
     }
+    ballsLeft = a.length;
+    ballsLeftDiv.innerText = ballsLeft;
 });
 
+// Pereinam per visus kamuoliukus
 for (let i = 0; i < a.length; i++) {
+    // pagavimo paspaudimas
     a[i].addEventListener('click', e => {
         e.stopPropagation();
         ballsLeft--;
         ballsLeftDiv.innerText = ballsLeft;
         a[i].style.display = 'none';
     });
+    a[i].style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
 
 
@@ -61,10 +66,7 @@ for (let i = 0; i < a.length; i++) {
     go(i);
 }
 
-console.log(intervalID);
+const section = document.querySelector('section');
 
-setTimeout(stop, 10000);
-
-function stop() {
-    clearInterval(intervalID)
-}
+section.addEventListener('click', e => e.stopPropagation());
+section.style.backgroundColor = 'black';
