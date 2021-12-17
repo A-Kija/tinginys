@@ -7,9 +7,9 @@ const rand = (min, max) => {
 let intViewportHeight = window.innerHeight - 100;
 let intViewportWidth = window.innerWidth - 100;
 
-const go = i => {
-    a[i].style.left = rand(0, intViewportWidth) + 'px';
-    a[i].style.top = rand(100, intViewportHeight) + 'px';
+const go = r => {
+    r.style.left = rand(0, intViewportWidth) + 'px';
+    r.style.top = rand(100, intViewportHeight) + 'px';
 }
 
 const a = document.querySelectorAll('.apskr');
@@ -27,24 +27,24 @@ reset.addEventListener('click', e => {
     e.stopPropagation();
     rez = 0;
     rezDiv.innerText = rez;
-    for (let i = 0; i < a.length; i++) {
-        a[i].style.display = null;
-    }
+    a.forEach(r => {
+        r.style.display = null;
+    })
     ballsLeft = a.length;
     ballsLeftDiv.innerText = ballsLeft;
 });
 
 // Pereinam per visus kamuoliukus
-for (let i = 0; i < a.length; i++) {
+a.forEach(r => {
     // pagavimo paspaudimas
-    a[i].addEventListener('click', e => {
+    r.addEventListener('click', e => {
         e.stopPropagation();
         ballsLeft--;
         ballsLeftDiv.innerText = ballsLeft;
-        a[i].style.display = 'none';
+        r.style.display = 'none';
     });
-    a[i].style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-}
+    r.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+});
 
 
 
@@ -55,16 +55,17 @@ document.querySelector('body').addEventListener('click', () => {
 
 
 const intervalID = setInterval(() => {
-    for (let i = 0; i < a.length; i++) {
+    a.forEach(r => {
         setTimeout(() => {
-            go(i);
+            go(r);
         }, rand(0, 500));
-    }
-}, 2000);
+    })
+}, 5000);
 
-for (let i = 0; i < a.length; i++) {
-    go(i);
-}
+// Start
+a.forEach(r => {
+    go(r);
+})
 
 const section = document.querySelector('section');
 

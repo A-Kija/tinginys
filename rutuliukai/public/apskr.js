@@ -16,9 +16,9 @@ var rand = function rand(min, max) {
 var intViewportHeight = window.innerHeight - 100;
 var intViewportWidth = window.innerWidth - 100;
 
-var go = function go(i) {
-  a[i].style.left = rand(0, intViewportWidth) + 'px';
-  a[i].style.top = rand(100, intViewportHeight) + 'px';
+var go = function go(r) {
+  r.style.left = rand(0, intViewportWidth) + 'px';
+  r.style.top = rand(100, intViewportHeight) + 'px';
 };
 
 var a = document.querySelectorAll('.apskr');
@@ -33,49 +33,37 @@ reset.addEventListener('click', function (e) {
   e.stopPropagation();
   rez = 0;
   rezDiv.innerText = rez;
-
-  for (var i = 0; i < a.length; i++) {
-    a[i].style.display = null;
-  }
-
+  a.forEach(function (r) {
+    r.style.display = null;
+  });
   ballsLeft = a.length;
   ballsLeftDiv.innerText = ballsLeft;
 }); // Pereinam per visus kamuoliukus
 
-var _loop = function _loop(i) {
+a.forEach(function (r) {
   // pagavimo paspaudimas
-  a[i].addEventListener('click', function (e) {
+  r.addEventListener('click', function (e) {
     e.stopPropagation();
     ballsLeft--;
     ballsLeftDiv.innerText = ballsLeft;
-    a[i].style.display = 'none';
+    r.style.display = 'none';
   });
-  a[i].style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-};
-
-for (var i = 0; i < a.length; i++) {
-  _loop(i);
-}
-
+  r.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+});
 document.querySelector('body').addEventListener('click', function () {
   rezDiv.innerText = ++rez;
 });
 var intervalID = setInterval(function () {
-  var _loop2 = function _loop2(_i) {
+  a.forEach(function (r) {
     setTimeout(function () {
-      go(_i);
+      go(r);
     }, rand(0, 500));
-  };
+  });
+}, 5000); // Start
 
-  for (var _i = 0; _i < a.length; _i++) {
-    _loop2(_i);
-  }
-}, 2000);
-
-for (var _i2 = 0; _i2 < a.length; _i2++) {
-  go(_i2);
-}
-
+a.forEach(function (r) {
+  go(r);
+});
 var section = document.querySelector('section');
 section.addEventListener('click', function (e) {
   return e.stopPropagation();
