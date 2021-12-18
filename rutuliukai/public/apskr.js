@@ -20,7 +20,7 @@ __webpack_require__.r(__webpack_exports__);
  // kamuoliukų sugeneravimas
 
 for (var i = 0; i < (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(5, 20); i++) {
-  (0,_functions__WEBPACK_IMPORTED_MODULE_0__.makeBall)();
+  (0,_functions__WEBPACK_IMPORTED_MODULE_0__.makeBall)(i + 1);
 }
 
 var a = document.querySelectorAll('.apskr'); // pradinių reikšmių priskyrimas
@@ -29,7 +29,7 @@ var a = document.querySelectorAll('.apskr'); // pradinių reikšmių priskyrimas
 (0,_functions__WEBPACK_IMPORTED_MODULE_0__.countEmptyClicks)(0);
 _elements__WEBPACK_IMPORTED_MODULE_1__.section.style.backgroundColor = 'black'; // pagrindiniai eventai
 
-(0,_events__WEBPACK_IMPORTED_MODULE_2__["default"])(); // pereinam per visus kamuoliukus
+(0,_events__WEBPACK_IMPORTED_MODULE_2__["default"])(); // pereinam per visus kamuoliukus laukiamas nugriovimas :)
 
 a.forEach(function (r) {
   // pagavimo paspaudimas
@@ -173,6 +173,12 @@ var makeBall = function makeBall() {
 
   div.classList.add('apskr');
   document.body.appendChild(div); // elementas idedamas i body
+  // 8
+
+  if (text === 8) {
+    div.style.fontSize = '50px';
+    div.style.fontWeight = 'bold';
+  }
 };
 
 /***/ }),

@@ -34,12 +34,15 @@ export const countEmptyClicks = (value = false) => {
     }
 }
 
-
 export const makeBall = (text = '') => {
     const div = document.createElement('div'); // naujas elementas
     const divText = document.createTextNode(text); // paruostas tekstas
     div.appendChild(divText); // tekstas idetas i elemeta
     div.classList.add('apskr');
     document.body.appendChild(div); // elementas idedamas i body
-
+    // 8
+    if (text === 8) {
+        div.style.fontSize = '50px';
+        div.style.fontWeight = 'bold';
+    }
 }

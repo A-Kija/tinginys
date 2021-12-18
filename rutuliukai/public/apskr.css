@@ -59,6 +59,12 @@ body {
   position: absolute;
   transition: all 5s cubic-bezier(0.25, 1.55, 1, -1.68);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  color: white;
+  text-shadow: black;
 }
 
 section {

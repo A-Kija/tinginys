@@ -5,7 +5,7 @@ import runEvents from './events';
 // kamuoliukų sugeneravimas
 
 for (let i = 0; i < rand(5, 20); i++) {
-    makeBall();
+    makeBall(i + 1);
 }
 export const a = document.querySelectorAll('.apskr');
 
@@ -18,7 +18,7 @@ section.style.backgroundColor = 'black';
 // pagrindiniai eventai
 runEvents();
 
-// pereinam per visus kamuoliukus
+// pereinam per visus kamuoliukus laukiamas nugriovimas :)
 a.forEach(r => {
     // pagavimo paspaudimas
     r.addEventListener('click', e => {
