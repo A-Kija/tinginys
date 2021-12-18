@@ -9,20 +9,26 @@
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "a": () => (/* binding */ a)
+/* harmony export */ });
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./src/js/functions.js");
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 /* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events */ "./src/js/events.js");
 
 
- // pradinių reikšmių priskyrimas
+ // kamuoliukų sugenerevimas
 
-(0,_functions__WEBPACK_IMPORTED_MODULE_0__.ballsLeft)(_elements__WEBPACK_IMPORTED_MODULE_1__.a.length);
+(0,_functions__WEBPACK_IMPORTED_MODULE_0__.makeBall)();
+var a = document.querySelectorAll('.apskr'); // pradinių reikšmių priskyrimas
+
+(0,_functions__WEBPACK_IMPORTED_MODULE_0__.ballsLeft)(a.length);
 (0,_functions__WEBPACK_IMPORTED_MODULE_0__.countEmptyClicks)(0);
 _elements__WEBPACK_IMPORTED_MODULE_1__.section.style.backgroundColor = 'black'; // pagrindiniai eventai
 
 (0,_events__WEBPACK_IMPORTED_MODULE_2__["default"])(); // pereinam per visus kamuoliukus
 
-_elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
+a.forEach(function (r) {
   // pagavimo paspaudimas
   r.addEventListener('click', function (e) {
     e.stopPropagation();
@@ -33,14 +39,14 @@ _elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
 }); // paleidžiam laikrodį
 
 setInterval(function () {
-  _elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
+  a.forEach(function (r) {
     setTimeout(function () {
       (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
     }, (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(0, 500));
   });
 }, 5000); // kamuoliukai startinėje pozicijoje
 
-_elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
+a.forEach(function (r) {
   (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
 });
 
@@ -54,13 +60,11 @@ _elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "a": () => (/* binding */ a),
 /* harmony export */   "ballsLeftDiv": () => (/* binding */ ballsLeftDiv),
 /* harmony export */   "rezDiv": () => (/* binding */ rezDiv),
 /* harmony export */   "reset": () => (/* binding */ reset),
 /* harmony export */   "section": () => (/* binding */ section)
 /* harmony export */ });
-var a = document.querySelectorAll('.apskr');
 var ballsLeftDiv = document.querySelector('.counter strong');
 var rezDiv = document.querySelector('.clicks strong');
 var reset = document.querySelector('button');
@@ -79,21 +83,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
-/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions */ "./src/js/functions.js");
+/* harmony import */ var _apskr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./apskr */ "./src/js/apskr.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions */ "./src/js/functions.js");
+
 
 
 
 var runEvents = function runEvents() {
   _elements__WEBPACK_IMPORTED_MODULE_0__.reset.addEventListener('click', function (e) {
     e.stopPropagation();
-    (0,_functions__WEBPACK_IMPORTED_MODULE_1__.countEmptyClicks)(0);
-    _elements__WEBPACK_IMPORTED_MODULE_0__.a.forEach(function (r) {
+    (0,_functions__WEBPACK_IMPORTED_MODULE_2__.countEmptyClicks)(0);
+    _apskr__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
       r.style.display = null;
     });
-    (0,_functions__WEBPACK_IMPORTED_MODULE_1__.ballsLeft)(_elements__WEBPACK_IMPORTED_MODULE_0__.a.length);
+    (0,_functions__WEBPACK_IMPORTED_MODULE_2__.ballsLeft)(_apskr__WEBPACK_IMPORTED_MODULE_1__.a.length);
   });
   document.querySelector('body').addEventListener('click', function () {
-    (0,_functions__WEBPACK_IMPORTED_MODULE_1__.countEmptyClicks)();
+    (0,_functions__WEBPACK_IMPORTED_MODULE_2__.countEmptyClicks)();
   });
   _elements__WEBPACK_IMPORTED_MODULE_0__.section.addEventListener('click', function (e) {
     return e.stopPropagation();
@@ -115,7 +121,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "rand": () => (/* binding */ rand),
 /* harmony export */   "go": () => (/* binding */ go),
 /* harmony export */   "ballsLeft": () => (/* binding */ ballsLeft),
-/* harmony export */   "countEmptyClicks": () => (/* binding */ countEmptyClicks)
+/* harmony export */   "countEmptyClicks": () => (/* binding */ countEmptyClicks),
+/* harmony export */   "makeBall": () => (/* binding */ makeBall)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 
@@ -152,6 +159,17 @@ var countEmptyClicks = function countEmptyClicks() {
   } else {
     _elements__WEBPACK_IMPORTED_MODULE_0__.rezDiv.innerText = value;
   }
+};
+var makeBall = function makeBall() {
+  var text = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var div = document.createElement('div'); // naujas elementas
+
+  var divText = document.createTextNode(text); // paruostas tekstas
+
+  div.appendChild(divText); // tekstas idetas i elemeta
+
+  div.classList.add('apskr');
+  document.body.appendChild(div); // elementas idedamas i body
 };
 
 /***/ }),

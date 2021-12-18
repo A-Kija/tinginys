@@ -1,11 +1,20 @@
-import { rand, go, ballsLeft, countEmptyClicks } from './functions';
-import { a, section } from './elements';
+import { rand, go, ballsLeft, countEmptyClicks, makeBall } from './functions';
+import { section } from './elements';
 import runEvents from './events';
+
+// kamuoliukų sugenerevimas
+
+makeBall();
+export const a = document.querySelectorAll('.apskr');
 
 // pradinių reikšmių priskyrimas
 ballsLeft(a.length);
 countEmptyClicks(0);
 section.style.backgroundColor = 'black';
+
+
+
+
 
 // pagrindiniai eventai
 runEvents();

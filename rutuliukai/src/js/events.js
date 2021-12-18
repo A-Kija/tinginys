@@ -1,4 +1,5 @@
-import { reset, section, a } from './elements';
+import { reset, section } from './elements';
+import { a } from './apskr';
 import { ballsLeft, countEmptyClicks } from './functions';
 
 const runEvents = () => {
