@@ -17,9 +17,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events */ "./src/js/events.js");
 
 
- // kamuoliukų sugenerevimas
+ // kamuoliukų sugeneravimas
 
-(0,_functions__WEBPACK_IMPORTED_MODULE_0__.makeBall)();
+for (var i = 0; i < (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(5, 20); i++) {
+  (0,_functions__WEBPACK_IMPORTED_MODULE_0__.makeBall)();
+}
+
 var a = document.querySelectorAll('.apskr'); // pradinių reikšmių priskyrimas
 
 (0,_functions__WEBPACK_IMPORTED_MODULE_0__.ballsLeft)(a.length);
