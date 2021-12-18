@@ -2,7 +2,6 @@ import { reset, section, a } from './elements';
 import { ballsLeft, countEmptyClicks } from './functions';
 
 const runEvents = () => {
-
     reset.addEventListener('click', e => {
         e.stopPropagation();
         countEmptyClicks(0)
