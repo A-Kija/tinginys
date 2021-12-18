@@ -1,19 +1,19 @@
-import { reset, section } from './elements';
+import { reset, section, a } from './elements';
+import { ballsLeft, countEmptyClicks } from './functions';
 
 const runEvents = () => {
+
     reset.addEventListener('click', e => {
         e.stopPropagation();
-        rez = 0;
-        rezDiv.innerText = rez;
+        countEmptyClicks(0)
         a.forEach(r => {
             r.style.display = null;
         })
-        ballsLeft = a.length;
-        ballsLeftDiv.innerText = ballsLeft;
+        ballsLeft(a.length);
     });
 
     document.querySelector('body').addEventListener('click', () => {
-        rezDiv.innerText = ++rez;
+        countEmptyClicks();
     });
 
     section.addEventListener('click', e => e.stopPropagation());

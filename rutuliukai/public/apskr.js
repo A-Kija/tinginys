@@ -14,13 +14,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events */ "./src/js/events.js");
 
 
+ // pradinių reikšmių priskyrimas
 
-var ballsLeft, rez; // pradinių reikšmių priskyrimas
-
-ballsLeft = _elements__WEBPACK_IMPORTED_MODULE_1__.a.length;
-_elements__WEBPACK_IMPORTED_MODULE_1__.ballsLeftDiv.innerText = ballsLeft;
-rez = 0;
-_elements__WEBPACK_IMPORTED_MODULE_1__.rezDiv.innerText = rez;
+(0,_functions__WEBPACK_IMPORTED_MODULE_0__.ballsLeft)(_elements__WEBPACK_IMPORTED_MODULE_1__.a.length);
+(0,_functions__WEBPACK_IMPORTED_MODULE_0__.countEmptyClicks)(0);
 _elements__WEBPACK_IMPORTED_MODULE_1__.section.style.backgroundColor = 'black'; // pagrindiniai eventai
 
 (0,_events__WEBPACK_IMPORTED_MODULE_2__["default"])(); // pereinam per visus kamuoliukus
@@ -29,8 +26,7 @@ _elements__WEBPACK_IMPORTED_MODULE_1__.a.forEach(function (r) {
   // pagavimo paspaudimas
   r.addEventListener('click', function (e) {
     e.stopPropagation();
-    ballsLeft--;
-    _elements__WEBPACK_IMPORTED_MODULE_1__.ballsLeftDiv.innerText = ballsLeft;
+    (0,_functions__WEBPACK_IMPORTED_MODULE_0__.ballsLeft)();
     r.style.display = 'none';
   });
   r.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -83,21 +79,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions */ "./src/js/functions.js");
+
 
 
 var runEvents = function runEvents() {
   _elements__WEBPACK_IMPORTED_MODULE_0__.reset.addEventListener('click', function (e) {
     e.stopPropagation();
-    rez = 0;
-    rezDiv.innerText = rez;
-    a.forEach(function (r) {
+    (0,_functions__WEBPACK_IMPORTED_MODULE_1__.countEmptyClicks)(0);
+    _elements__WEBPACK_IMPORTED_MODULE_0__.a.forEach(function (r) {
       r.style.display = null;
     });
-    ballsLeft = a.length;
-    ballsLeftDiv.innerText = ballsLeft;
+    (0,_functions__WEBPACK_IMPORTED_MODULE_1__.ballsLeft)(_elements__WEBPACK_IMPORTED_MODULE_0__.a.length);
   });
   document.querySelector('body').addEventListener('click', function () {
-    rezDiv.innerText = ++rez;
+    (0,_functions__WEBPACK_IMPORTED_MODULE_1__.countEmptyClicks)();
   });
   _elements__WEBPACK_IMPORTED_MODULE_0__.section.addEventListener('click', function (e) {
     return e.stopPropagation();
@@ -118,7 +114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "rand": () => (/* binding */ rand),
 /* harmony export */   "go": () => (/* binding */ go),
-/* harmony export */   "ballsLeft": () => (/* binding */ ballsLeft)
+/* harmony export */   "ballsLeft": () => (/* binding */ ballsLeft),
+/* harmony export */   "countEmptyClicks": () => (/* binding */ countEmptyClicks)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 
@@ -130,7 +127,10 @@ var rand = function rand(min, max) {
 var go = function go(r) {
   r.style.left = rand(0, window.innerWidth - 100) + 'px';
   r.style.top = rand(100, window.innerHeight - 100) + 'px';
-};
+}; // ballsLeft() ===> --
+// ballsLeft(0) ===> 0
+// ballsLeft(10) ===> 10
+
 var ballsLeft = function ballsLeft() {
   var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
@@ -140,6 +140,17 @@ var ballsLeft = function ballsLeft() {
     _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText = valueNow;
   } else {
     _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText = value;
+  }
+};
+var countEmptyClicks = function countEmptyClicks() {
+  var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+  if (false === value) {
+    var valueNow = _elements__WEBPACK_IMPORTED_MODULE_0__.rezDiv.innerText;
+    valueNow++;
+    _elements__WEBPACK_IMPORTED_MODULE_0__.rezDiv.innerText = valueNow;
+  } else {
+    _elements__WEBPACK_IMPORTED_MODULE_0__.rezDiv.innerText = value;
   }
 };
 

@@ -1,14 +1,10 @@
-import { rand, go } from './functions';
-import { a, ballsLeftDiv, rezDiv, section } from './elements';
+import { rand, go, ballsLeft, countEmptyClicks } from './functions';
+import { a, section } from './elements';
 import runEvents from './events';
 
-let ballsLeft, rez;
-
 // pradinių reikšmių priskyrimas
-ballsLeft = a.length;
-ballsLeftDiv.innerText = ballsLeft;
-rez = 0;
-rezDiv.innerText = rez;
+ballsLeft(a.length);
+countEmptyClicks(0);
 section.style.backgroundColor = 'black';
 
 // pagrindiniai eventai
@@ -19,8 +15,7 @@ a.forEach(r => {
     // pagavimo paspaudimas
     r.addEventListener('click', e => {
         e.stopPropagation();
-        ballsLeft--;
-        ballsLeftDiv.innerText = ballsLeft;
+        ballsLeft();
         r.style.display = 'none';
     });
     r.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);

@@ -1,4 +1,4 @@
-import { ballsLeftDiv } from './elements';
+import { ballsLeftDiv, rezDiv } from './elements';
 
 export const rand = (min, max) => {
     min = Math.ceil(min);
@@ -11,6 +11,9 @@ export const go = r => {
     r.style.top = rand(100, window.innerHeight - 100) + 'px';
 }
 
+// ballsLeft() ===> --
+// ballsLeft(0) ===> 0
+// ballsLeft(10) ===> 10
 export const ballsLeft = (value = false) => {
     if (false === value) {
         let valueNow = ballsLeftDiv.innerText;
@@ -18,5 +21,15 @@ export const ballsLeft = (value = false) => {
         ballsLeftDiv.innerText = valueNow;
     } else {
         ballsLeftDiv.innerText = value;
+    }
+}
+
+export const countEmptyClicks = (value = false) => {
+    if (false === value) {
+        let valueNow = rezDiv.innerText;
+        valueNow++;
+        rezDiv.innerText = valueNow;
+    } else {
+        rezDiv.innerText = value;
     }
 }
