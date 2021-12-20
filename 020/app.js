@@ -46,7 +46,6 @@ ul.querySelectorAll('li').forEach(li => {
     }
 })
 
-
 // 6
 // Suskaičiuoti, kiek section#_1 yra gėlių
 
