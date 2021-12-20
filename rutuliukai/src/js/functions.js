@@ -18,6 +18,9 @@ export const ballsLeft = (value = false) => {
     if (false === value) {
         let valueNow = ballsLeftDiv.innerText;
         valueNow--;
+        if (!valueNow) {
+            countTimer.timer('stop');
+        }
         ballsLeftDiv.innerText = valueNow;
     } else {
         ballsLeftDiv.innerText = value;
@@ -44,5 +47,30 @@ export const makeBall = (text = '') => {
     if (text === 8) {
         div.style.fontSize = '50px';
         div.style.fontWeight = 'bold';
+    }
+}
+
+export const countTimer = {
+    id: 0,
+    sec: 0,
+    timer: function(mode) {
+        const timerEl = document.querySelector('.timer strong');
+        switch (mode) {
+            case 'reset':
+                timerEl.innerText = '0.0';
+                this.sec = 0;
+                clearInterval(this.id);
+                break;
+            case 'start':
+                this.sec = 0;
+                this.id = setInterval(() => {
+                    this.sec++;
+                    timerEl.innerText = (this.sec / 100).toFixed(2)
+                }, 10);
+                break;
+            case 'stop':
+                clearInterval(this.id);
+                break;
+        }
     }
 }

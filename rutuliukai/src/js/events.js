@@ -1,6 +1,6 @@
 import { reset, section } from './elements';
-import { a } from './apskr';
-import { ballsLeft, countEmptyClicks } from './functions';
+import { a, intervalId } from './apskr';
+import { ballsLeft, countEmptyClicks, countTimer } from './functions';
 
 const runEvents = () => {
     reset.addEventListener('click', e => {
@@ -10,6 +10,8 @@ const runEvents = () => {
             r.style.display = null;
         })
         ballsLeft(a.length);
+        clearInterval(intervalId.id);
+        countTimer.timer('reset');
     });
 
     document.querySelector('body').addEventListener('click', () => {

@@ -10,6 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "intervalId": () => (/* binding */ intervalId),
 /* harmony export */   "a": () => (/* binding */ a)
 /* harmony export */ });
 /* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions */ "./src/js/functions.js");
@@ -17,7 +18,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events */ "./src/js/events.js");
 
 
- // kamuoliukų sugeneravimas
+
+var intervalId = {
+  id: 0
+}; // kamuoliukų sugeneravimas
 
 for (var i = 0; i < (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(5, 20); i++) {
   (0,_functions__WEBPACK_IMPORTED_MODULE_0__.makeBall)(i + 1);
@@ -27,7 +31,8 @@ var a = document.querySelectorAll('.apskr'); // pradinių reikšmių priskyrimas
 
 (0,_functions__WEBPACK_IMPORTED_MODULE_0__.ballsLeft)(a.length);
 (0,_functions__WEBPACK_IMPORTED_MODULE_0__.countEmptyClicks)(0);
-_elements__WEBPACK_IMPORTED_MODULE_1__.section.style.backgroundColor = 'black'; // pagrindiniai eventai
+_elements__WEBPACK_IMPORTED_MODULE_1__.section.style.backgroundColor = 'black';
+_functions__WEBPACK_IMPORTED_MODULE_0__.countTimer.timer('reset'); // pagrindiniai eventai
 
 (0,_events__WEBPACK_IMPORTED_MODULE_2__["default"])(); // pereinam per visus kamuoliukus laukiamas nugriovimas :)
 
@@ -39,15 +44,22 @@ a.forEach(function (r) {
     r.style.display = 'none';
   });
   r.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-}); // paleidžiam laikrodį
-
-setInterval(function () {
+});
+_elements__WEBPACK_IMPORTED_MODULE_1__.start.addEventListener('click', function () {
+  _functions__WEBPACK_IMPORTED_MODULE_0__.countTimer.timer('start');
   a.forEach(function (r) {
-    setTimeout(function () {
-      (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
-    }, (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(0, 500));
-  });
-}, 5000); // kamuoliukai startinėje pozicijoje
+    return (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
+  }); // paleidžiam laikrodį
+
+  var id = setInterval(function () {
+    a.forEach(function (r) {
+      setTimeout(function () {
+        (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
+      }, (0,_functions__WEBPACK_IMPORTED_MODULE_0__.rand)(0, 500));
+    });
+  }, 5000);
+  intervalId.id = id;
+}); // kamuoliukai startinėje pozicijoje
 
 a.forEach(function (r) {
   (0,_functions__WEBPACK_IMPORTED_MODULE_0__.go)(r);
@@ -66,11 +78,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "ballsLeftDiv": () => (/* binding */ ballsLeftDiv),
 /* harmony export */   "rezDiv": () => (/* binding */ rezDiv),
 /* harmony export */   "reset": () => (/* binding */ reset),
+/* harmony export */   "start": () => (/* binding */ start),
 /* harmony export */   "section": () => (/* binding */ section)
 /* harmony export */ });
 var ballsLeftDiv = document.querySelector('.counter strong');
 var rezDiv = document.querySelector('.clicks strong');
-var reset = document.querySelector('button');
+var reset = document.querySelector('button.reset');
+var start = document.querySelector('button.start');
 var section = document.querySelector('section');
 
 /***/ }),
@@ -100,6 +114,8 @@ var runEvents = function runEvents() {
       r.style.display = null;
     });
     (0,_functions__WEBPACK_IMPORTED_MODULE_2__.ballsLeft)(_apskr__WEBPACK_IMPORTED_MODULE_1__.a.length);
+    clearInterval(_apskr__WEBPACK_IMPORTED_MODULE_1__.intervalId.id);
+    _functions__WEBPACK_IMPORTED_MODULE_2__.countTimer.timer('reset');
   });
   document.querySelector('body').addEventListener('click', function () {
     (0,_functions__WEBPACK_IMPORTED_MODULE_2__.countEmptyClicks)();
@@ -125,7 +141,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "go": () => (/* binding */ go),
 /* harmony export */   "ballsLeft": () => (/* binding */ ballsLeft),
 /* harmony export */   "countEmptyClicks": () => (/* binding */ countEmptyClicks),
-/* harmony export */   "makeBall": () => (/* binding */ makeBall)
+/* harmony export */   "makeBall": () => (/* binding */ makeBall),
+/* harmony export */   "countTimer": () => (/* binding */ countTimer)
 /* harmony export */ });
 /* harmony import */ var _elements__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./elements */ "./src/js/elements.js");
 
@@ -147,6 +164,11 @@ var ballsLeft = function ballsLeft() {
   if (false === value) {
     var valueNow = _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText;
     valueNow--;
+
+    if (!valueNow) {
+      countTimer.timer('stop');
+    }
+
     _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText = valueNow;
   } else {
     _elements__WEBPACK_IMPORTED_MODULE_0__.ballsLeftDiv.innerText = value;
@@ -178,6 +200,35 @@ var makeBall = function makeBall() {
   if (text === 8) {
     div.style.fontSize = '50px';
     div.style.fontWeight = 'bold';
+  }
+};
+var countTimer = {
+  id: 0,
+  sec: 0,
+  timer: function timer(mode) {
+    var _this = this;
+
+    var timerEl = document.querySelector('.timer strong');
+
+    switch (mode) {
+      case 'reset':
+        timerEl.innerText = '0.0';
+        this.sec = 0;
+        clearInterval(this.id);
+        break;
+
+      case 'start':
+        this.sec = 0;
+        this.id = setInterval(function () {
+          _this.sec++;
+          timerEl.innerText = (_this.sec / 100).toFixed(2);
+        }, 10);
+        break;
+
+      case 'stop':
+        clearInterval(this.id);
+        break;
+    }
   }
 };
 

@@ -97,3 +97,13 @@ section .counter strong {
   color: darkred;
   font-weight: bold;
 }
+section .timer span {
+  font-size: 60px;
+  color: gray;
+}
+section .timer strong {
+  font-size: 60px;
+  font-family: "Courier New", Courier, monospace;
+  color: darkred;
+  font-weight: bold;
+}

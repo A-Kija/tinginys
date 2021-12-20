@@ -1,6 +1,7 @@
-import { rand, go, ballsLeft, countEmptyClicks, makeBall } from './functions';
-import { section } from './elements';
+import { countTimer, rand, go, ballsLeft, countEmptyClicks, makeBall } from './functions';
+import { section, start } from './elements';
 import runEvents from './events';
+export const intervalId = { id: 0 };
 
 // kamuoliukų sugeneravimas
 
@@ -13,6 +14,7 @@ export const a = document.querySelectorAll('.apskr');
 ballsLeft(a.length);
 countEmptyClicks(0);
 section.style.backgroundColor = 'black';
+countTimer.timer('reset');
 
 
 // pagrindiniai eventai
@@ -29,14 +31,21 @@ a.forEach(r => {
     r.style.backgroundColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
 });
 
-// paleidžiam laikrodį
-setInterval(() => {
-    a.forEach(r => {
-        setTimeout(() => {
-            go(r);
-        }, rand(0, 500));
-    })
-}, 5000);
+start.addEventListener('click', () => {
+    countTimer.timer('start');
+    a.forEach(r => go(r));
+
+    // paleidžiam laikrodį
+    let id = setInterval(() => {
+        a.forEach(r => {
+            setTimeout(() => {
+                go(r);
+            }, rand(0, 500));
+        })
+    }, 5000);
+    intervalId.id = id;
+
+});
 
 // kamuoliukai startinėje pozicijoje
 a.forEach(r => {

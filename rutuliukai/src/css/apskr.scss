@@ -55,4 +55,16 @@ section {
             font-weight: bold;
         }
     }
+    .timer {
+        span {
+            font-size: 60px;
+            color: gray;
+        }
+        strong {
+            font-size: 60px;
+            font-family: 'Courier New', Courier, monospace;
+            color: darkred;
+            font-weight: bold;
+        }
+    }
 }
