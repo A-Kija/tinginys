@@ -34,3 +34,8 @@ document.querySelectorAll('div.prices h2').forEach(tagH2 => tagH2.classList.add(
 
 // 2e
 document.querySelectorAll('.new').forEach(newClass => newClass.style.textDecoration = 'underline');
+
+// 2f
+const ul = document.querySelectorAll('ul');
+console.log('Kategorijos:', ul.length);
+console.log('Zirafų:', document.querySelectorAll('#zirafos li:not(.like-button)').length);
