@@ -35,9 +35,34 @@ randoms.push(newRandom);
 // struktura paverciam stringu ir irasome i saugykla
 localStorage.setItem('digits', JSON.stringify(randoms));
 
-
-
-
-
 // Tin vizualizacija
-console.log(JSON.parse(localStorage.getItem('digits')));
+// console.log(JSON.parse(localStorage.getItem('digits')));
+
+
+
+
+let balls = localStorage.getItem('balls'); // gauname stringa
+const body = document.querySelector('body');
+
+// Pirmas kartas
+if (null === balls) {
+    balls = [];
+} else {
+    balls = JSON.parse(balls); //is json stringo padarome struktura
+}
+
+let newBall = '#' + Math.floor(Math.random() * 16777215).toString(16);
+
+newBall = newBall.length < 7 ? newBall + '0' : newBall;
+
+balls.push(newBall);
+
+// struktura paverciam stringu ir irasome i saugykla
+localStorage.setItem('balls', JSON.stringify(balls));
+
+balls.forEach(color => {
+    const span = document.createElement('span');
+    span.classList.add('ball');
+    span.style.backgroundColor = color;
+    body.appendChild(span);
+});
