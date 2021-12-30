@@ -24,6 +24,10 @@ y = rand(1, 200);
 
 if (x > 100) {
     rezultatas = x - y;
+} else if (x > 50) {
+    rezultatas = x / y;
+} else if (x > 20) {
+    rezultatas = x * y;
 } else {
     rezultatas = x + y;
 }
