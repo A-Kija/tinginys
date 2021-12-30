@@ -6,6 +6,15 @@ fetch('https://jsonplaceholder.typicode.com/users')
     .then(strukura => {
         console.log(strukura);
         // sort here <----
+        strukura.sort((a, b) => {
+            if (a.username > b.username) {
+                return 1;
+            } else if (a.username < b.username) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
         strukura.forEach(element => {
             const li = document.createElement('li');
             // const userName = document.createTextNode(element.username);
