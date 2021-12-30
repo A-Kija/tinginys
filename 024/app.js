@@ -48,3 +48,14 @@ document.querySelector('#za').addEventListener('click', () => {
     });
     render();
 });
+
+document.querySelector('#add').addEventListener('click', () => {
+    const programmer = {
+        username: document.querySelector('#name').value,
+        email: document.querySelector('#email').value
+    }
+    data.unshift(programmer);
+    document.querySelector('#name').value = '';
+    document.querySelector('#email').value = '';
+    render();
+});
