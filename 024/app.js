@@ -5,6 +5,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(strukura => {
         console.log(strukura);
+        // sort here <----
         strukura.forEach(element => {
             const li = document.createElement('li');
             // const userName = document.createTextNode(element.username);
@@ -22,3 +23,21 @@ fetch('https://jsonplaceholder.typicode.com/users')
         });
         // tuscia vieta
     });
+
+
+const masyvas = ['Pupsis', 'Mupsis', 'Šarikas', 'Pupsis', 'Bobikas'];
+const masyvasSk = [8, 65, 78, 255, 147, 8, 744];
+
+masyvasSk.sort((a, b) => b - a);
+
+masyvas.sort((a, b) => {
+    if (a > b) {
+        return 1;
+    } else if (a < b) {
+        return -1;
+    } else {
+        return 0;
+    }
+});
+
+console.log(masyvas, masyvasSk);
