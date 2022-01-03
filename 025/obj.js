@@ -1,6 +1,7 @@
 const cat = {
     name: 'Murka',
-    age: 3
+    age: 3,
+    bigName: null // del TS
 }
 
 console.log(cat);
@@ -11,3 +12,9 @@ const toBig = (str) => {
 }
 
 toBig('lalalalalalal');
+
+cat.bigName = function() {
+    console.log(this.name.toUpperCase());
+}
+
+cat.bigName();
