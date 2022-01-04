@@ -50,7 +50,9 @@ class Troleibusas {
     static visiKeleiviai = 0;
 
     static bendrasKeleiviuSkaicius = keleiviuSkaicius => {
-        Troleibusas.visiKeleiviai += keleiviuSkaicius;
+        this.constructor.visiKeleiviai += keleiviuSkaicius;
+        // Troleibusas.visiKeleiviai += keleiviuSkaicius;
+        // this.constructor === klases varda
     }
 
     constructor() {
