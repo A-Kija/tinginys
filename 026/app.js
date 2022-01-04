@@ -131,3 +131,56 @@ k2.prideti1Akmeni();
 
 
 Kibiras1.akmenuSkaiciusVisuoseKibiruose();
+
+
+
+
+class Pinigine {
+
+    constructor() {
+        this.popieriniaiPinigai = [];
+        this.metaliniaiPinigai = [];
+    }
+
+    ideti = kiekis => {
+        if (kiekis > 2) {
+            this.popieriniaiPinigai.push(kiekis);
+        } else {
+            this.metaliniaiPinigai.push(kiekis);
+        }
+    }
+
+    skaiciuoti = () => {
+        let popSuma = 0;
+        let metSuma = 0;
+
+        // const reducer = (previousValue, currentValue) => previousValue + currentValue;
+        // popSuma = this.popieriniaiPinigai.reduce(reducer);
+        // metSuma = this.metaliniaiPinigai.reduce(reducer);
+
+        this.popieriniaiPinigai.forEach(p => popSuma += p);
+        this.metaliniaiPinigai.forEach(p => metSuma += p);
+
+
+        console.log('popierius: ' + this.popieriniaiPinigai.length);
+        console.log('metalas: ' + this.metaliniaiPinigai.length);
+        console.log('Piniginėje yra: ' + (popSuma + metSuma));
+    }
+
+}
+
+const p = new Pinigine();
+
+p.ideti(10);
+p.ideti(0.9);
+p.ideti(0.7);
+p.ideti(10);
+p.ideti(10);
+p.ideti(0.8);
+p.ideti(0.7);
+
+
+p.skaiciuoti();
+
+
+console.log(p);
