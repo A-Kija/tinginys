@@ -14,6 +14,10 @@ class Maisas {
     kiekMaise = () => {
         console.log('maise yra: ' + this.bulviu);
     }
+
+    kiekYraViso = () => {
+        console.log('VISO: ' + this.constructor.visoBulviu);
+    }
 }
 
 const m1 = new Maisas();
@@ -32,9 +36,54 @@ m4.deti(80);
 m1.kiekMaise();
 m2.kiekMaise();
 m3.kiekMaise();
+m4.kiekYraViso();
 
 console.log(m1);
 
-console.log('VISO: ' + Maisas.visoBulviu);
+
 
 // O tai kiek is vis yra tu bulviu???
+
+
+class Troleibusas {
+
+    static visiKeleiviai = 0;
+
+    static bendrasKeleiviuSkaicius = keleiviuSkaicius => {
+        Troleibusas.visiKeleiviai += keleiviuSkaicius;
+    }
+
+    constructor() {
+        this.keleiviuSkaicius = 0;
+    }
+
+    ilipa = keleiviuSkaicius => {
+        this.keleiviuSkaicius += keleiviuSkaicius;
+        Troleibusas.bendrasKeleiviuSkaicius(keleiviuSkaicius);
+    }
+
+    islipa = keleiviuSkaicius => {
+        Troleibusas.bendrasKeleiviuSkaicius(-1 * Math.min(this.keleiviuSkaicius, keleiviuSkaicius));
+        this.keleiviuSkaicius = Math.max(0, this.keleiviuSkaicius -= keleiviuSkaicius);
+    }
+
+    keleiviuSkaiciusVisuoseTroleibusuose = () => {
+        console.log('Visais Trūlais važiuoja: ' + Troleibusas.visiKeleiviai + ' keleivių')
+    }
+
+    vaziuoja = () => {
+        console.log('Trūlu važiuoja: ' + this.keleiviuSkaicius + ' keleivių')
+    }
+}
+
+const t4 = new Troleibusas();
+const t10 = new Troleibusas();
+
+
+t4.ilipa(10);
+t10.ilipa(10);
+t4.ilipa(10);
+t10.ilipa(10);
+t4.islipa(80);
+
+t4.keleiviuSkaiciusVisuoseTroleibusuose();
