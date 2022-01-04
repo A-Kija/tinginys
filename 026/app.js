@@ -89,3 +89,45 @@ t10.ilipa(10);
 t4.islipa(80);
 
 t4.keleiviuSkaiciusVisuoseTroleibusuose();
+
+
+class Kibiras1 {
+
+    static visiAkmenys = 0;
+
+    static bendrasAkmenuSkaicius = akmenuSkaicius => {
+        this.visiAkmenys += akmenuSkaicius;
+    }
+
+    static akmenuSkaiciusVisuoseKibiruose = () => {
+        console.log('Prinkta visuose: ' + this.visiAkmenys);
+    }
+
+    constructor() {
+        this.akmenuKiekis = 0;
+    }
+
+    prideti1Akmeni = () => {
+        this.akmenuKiekis++;
+        this.constructor.bendrasAkmenuSkaicius(1)
+    }
+
+    pridetiDaugAkmenu = (kiekis) => {
+        this.akmenuKiekis += kiekis;
+        this.constructor.bendrasAkmenuSkaicius(kiekis);
+    }
+
+    kiekPririnktaAkmenu = () => {
+        console.log('Prinkta: ' + this.akmenuKiekis);
+    }
+}
+
+const k1 = new Kibiras1();
+const k2 = new Kibiras1();
+
+k1.prideti1Akmeni();
+k2.pridetiDaugAkmenu(7);
+k2.prideti1Akmeni();
+
+
+Kibiras1.akmenuSkaiciusVisuoseKibiruose();
