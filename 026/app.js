@@ -167,6 +167,24 @@ class Pinigine {
         console.log('Piniginėje yra: ' + (popSuma + metSuma));
     }
 
+    monetos = () => {
+        let metSuma = 0;
+        // const reducer = (previousValue, currentValue) => previousValue + currentValue;
+        // metSuma = this.metaliniaiPinigai.reduce(reducer);
+        this.metaliniaiPinigai.forEach(p => metSuma += p);
+        console.log('metalas: ' + this.metaliniaiPinigai.length);
+        console.log('Piniginėje yra: ' + metSuma);
+    }
+
+    banknotai = () => {
+        let popSuma = 0;
+        // const reducer = (previousValue, currentValue) => previousValue + currentValue;
+        // popSuma = this.popieriniaiPinigai.reduce(reducer);
+        this.popieriniaiPinigai.forEach(p => popSuma += p);
+        console.log('popierius: ' + this.popieriniaiPinigai.length);
+        console.log('Piniginėje yra: ' + popSuma);
+    }
+
 }
 
 const p = new Pinigine();
@@ -180,7 +198,9 @@ p.ideti(0.8);
 p.ideti(0.7);
 
 
-p.skaiciuoti();
+// p.skaiciuoti();
+p.banknotai();
+p.monetos();
 
 
 console.log(p);
