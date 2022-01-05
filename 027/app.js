@@ -64,3 +64,51 @@ mapas.forEach(a => console.log(a));
 for (const value of mapas) {
     console.log(value);
 }
+
+
+class PirkiniuKrepselis {
+
+    constructor() {
+        this.turinys = new Map();
+    }
+
+    idetiSureli = kiekis => {
+        if (this.turinys.has('surelis')) {
+            kiekis += this.turinys.get('surelis');
+        }
+        this.turinys.set('surelis', kiekis);
+    }
+    idetiPieno = kiekis => {
+        if (this.turinys.has('pienukas')) {
+            kiekis += this.turinys.get('pienukas');
+        }
+        this.turinys.set('pienukas', kiekis);
+    }
+    idetiDuonos = kiekis => {
+        if (this.turinys.has('batonas')) {
+            kiekis += this.turinys.get('batonas');
+        }
+        this.turinys.set('batonas', kiekis);
+    }
+
+    krepselioTurinys = () => {
+        console.log('Turinys:');
+        for (const product of this.turinys) {
+            console.log(`${product[0]} yra: ${product[1]}`);
+        }
+    }
+}
+
+const k = new PirkiniuKrepselis();
+
+k.idetiPieno(2);
+k.idetiSureli(5);
+k.idetiDuonos(1);
+k.idetiPieno(10);
+k.idetiSureli(15);
+
+
+
+
+
+k.krepselioTurinys();
