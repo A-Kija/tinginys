@@ -41,3 +41,26 @@ s100.ipilti(
 console.log('200: ' + s200.stiklinejeYra());
 console.log('150: ' + s150.stiklinejeYra());
 console.log('100: ' + s100.stiklinejeYra());
+
+
+const mapas = new Map();
+
+
+mapas.set('Murka', 7);
+mapas.set('Rainys', 4);
+mapas.set('Barsukas', 1);
+
+
+mapas.set('Rainys', 5);
+console.log(mapas.has('Murka'));
+// mapas.delete('Murka');
+
+console.log(mapas.get('Barsukas'));
+
+console.log(mapas);
+
+mapas.forEach(a => console.log(a));
+
+for (const value of mapas) {
+    console.log(value);
+}
