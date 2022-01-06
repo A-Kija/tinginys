@@ -134,6 +134,23 @@ class Db {
         this.save();
     }
 
+    edit = (id, name, type, space) => {
+        const cloud = new Cloud(
+            id,
+            name,
+            type,
+            space
+        );
+        let index;
+        this.data.forEach((c, i) => {
+            if (c.id === id) {
+                index = i;
+            }
+        });
+        this.data[index] = cloud;
+        this.save();
+    }
+
 }
 
 
@@ -143,21 +160,79 @@ class CloudApp {
     static start = () => {
         this.db = new Db();
         this.render();
-        document.querySelector('#new button').addEventListener('click', () => this.new())
+        document.querySelector('#new button').addEventListener('click', () => this.new());
+        document.querySelector('#modal b').addEventListener('click', () => this.hideModal());
+        document.querySelector('#modal button').addEventListener('click', () => this.edit());
     }
 
     static new = () => {
+        const sectionNew = document.querySelector('#new');
         this.db.create(
-            document.querySelector('[name=name]').value,
-            document.querySelector('[name=type]').value,
-            document.querySelector('[name=space]').value,
+            sectionNew.querySelector('[name=name]').value,
+            sectionNew.querySelector('[name=type]').value,
+            sectionNew.querySelector('[name=space]').value,
         );
+        sectionNew.querySelector('[name=name]').value = '';
+        sectionNew.querySelector('[name=type]').value = '0';
+        sectionNew.querySelector('[name=space]').value = '';
         this.render();
     }
 
     static delete = e => {
         this.db.delete(e.target.dataset.id);
         this.render();
+    }
+
+    static edit = () => {
+        const modal = document.querySelector('#modal');
+        this.db.edit(
+            parseInt(modal.dataset.id),
+            modal.querySelector('[name=name]').value,
+            modal.querySelector('[name=type]').value,
+            modal.querySelector('[name=space]').value
+        )
+        this.hideModal();
+        this.render();
+    }
+
+    static showModal = e => {
+        const modal = document.querySelector('#modal');
+        modal.style.display = null;
+        const id = parseInt(e.target.dataset.id);
+        modal.dataset.id = id;
+        const cloud = this.db.data.filter(c => c.id === id)[0];
+        let type;
+        switch (cloud.type) {
+            case 'Plunksniniai':
+                type = 1;
+                break;
+            case 'Plunksniniai kamuoliniai':
+                type = 2;
+                break;
+            case 'Kamuoliniai':
+                type = 3;
+                break;
+            case 'Liūtiniai kamuoliniai':
+                type = 4;
+                break;
+            case 'Sluoksniniai':
+                type = 5;
+                break;
+            default:
+                type = 0;
+        }
+        modal.querySelector('[name=name]').value = cloud.name;
+        modal.querySelector('[name=type]').value = type;
+        modal.querySelector('[name=space]').value = cloud.space;
+    }
+
+    static hideModal = e => {
+        const modal = document.querySelector('#modal');
+        modal.style.display = 'none';
+        modal.dataset.id = null;
+        modal.querySelector('[name=name]').value = '';
+        modal.querySelector('[name=type]').value = '0';
+        modal.querySelector('[name=space]').value = '';
     }
 
     static render = () => {
@@ -169,6 +244,7 @@ class CloudApp {
                 <i>tipas: ${c.type}</i>
                 <p>${c.space} kv. km</p>
                 <button data-id="${c.id}" class="del">Trinti</button>
+                <button data-id="${c.id}" class="edit">Redaguoti</button>
             `;
             const div = document.createElement('div');
             div.classList.add('cloud');
@@ -178,6 +254,11 @@ class CloudApp {
         document.querySelectorAll('button.del').forEach(b => {
             b.addEventListener('click', e => {
                 this.delete(e);
+            })
+        });
+        document.querySelectorAll('button.edit').forEach(b => {
+            b.addEventListener('click', e => {
+                this.showModal(e);
             })
         })
     }
