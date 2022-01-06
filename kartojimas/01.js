@@ -51,6 +51,24 @@ for (let pirstukai = 0; pirstukai < 11; pirstukai++) {
 
 }
 
-
+if (suma > suma2) {
+    console.log('didieji laimėjo');
+} else if (suma < suma2) {
+    console.log('mažieji laimėjo');
+} else {
+    console.log('draugystė laimėjo');
+}
 
 console.log('suma', suma, suma2);
+
+
+
+let stars = '';
+
+for (let pirstukai = 0; pirstukai < 123; pirstukai++) {
+
+    stars = stars + '*';
+
+}
+
+console.log(stars);
