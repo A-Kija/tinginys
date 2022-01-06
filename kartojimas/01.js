@@ -67,7 +67,11 @@ let stars = '';
 
 for (let pirstukai = 0; pirstukai < 123; pirstukai++) {
 
-    stars = stars + '*';
+    if (pirstukai % 2) {
+        stars = stars + 'o';
+    } else {
+        stars = stars + '*';
+    }
 
 }
 

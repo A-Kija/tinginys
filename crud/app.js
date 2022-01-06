@@ -18,8 +18,6 @@ class Cloud {
         this.name = name;
         this.space = space;
 
-        console.log(type);
-
         switch (parseInt(type)) {
             case 1:
                 this.type = 'Plunksniniai';
