@@ -122,6 +122,18 @@ class Db {
         this.save();
     }
 
+    delete = id => {
+        id = parseInt(id);
+        let index;
+        this.data.forEach((c, i) => {
+            if (c.id === id) {
+                index = i;
+            }
+        });
+        this.data.splice(index, 1);
+        this.save();
+    }
+
 }
 
 
@@ -143,6 +155,11 @@ class CloudApp {
         this.render();
     }
 
+    static delete = e => {
+        this.db.delete(e.target.dataset.id);
+        this.render();
+    }
+
     static render = () => {
         const section = document.querySelector('#list');
         section.innerHTML = '';
@@ -151,11 +168,18 @@ class CloudApp {
                 <h3><i>ID: ${c.id}</i> ${c.name}</h3>
                 <i>tipas: ${c.type}</i>
                 <p>${c.space} kv. km</p>
+                <button data-id="${c.id}" class="del">Trinti</button>
             `;
             const div = document.createElement('div');
+            div.classList.add('cloud');
             div.innerHTML = html;
             section.appendChild(div);
         });
+        document.querySelectorAll('button.del').forEach(b => {
+            b.addEventListener('click', e => {
+                this.delete(e);
+            })
+        })
     }
 
 }
