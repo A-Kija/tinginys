@@ -94,12 +94,12 @@ class Db {
             }
             clouds.push(cloud);
         });
-        localStorage.setItem('cloudsRegister', clouds);
+        localStorage.setItem('cloudsRegister', JSON.stringify(clouds));
     }
 
     create = (name, type, space) => {
         const cloud = new Cloud(
-            this.getNextId,
+            this.getNextId(),
             name,
             type,
             space
@@ -109,3 +109,42 @@ class Db {
     }
 
 }
+
+
+class CloudApp {
+
+    static db;
+    static start = () => {
+        this.db = new Db();
+        this.render();
+        document.querySelector('#new button').addEventListener('click', () => this.new())
+    }
+
+    static new = () => {
+        this.db.create(
+            document.querySelector('[name=name]').value,
+            document.querySelector('[name=type]').value,
+            document.querySelector('[name=space]').value,
+        );
+        this.render();
+    }
+
+    static render = () => {
+        const section = document.querySelector('#list');
+        section.innerHTML = '';
+        this.db.data.forEach(c => {
+            const html = `
+                <h3><i>ID: ${c.id}</i> ${c.name}</h3>
+                <i>tipas: ${c.type}</i>
+                <p>${c.space} kv. km</p>
+            `;
+            const div = document.createElement('div');
+            div.innerHTML = html;
+            section.appendChild(div);
+        });
+    }
+
+}
+
+
+CloudApp.start();
