@@ -13,20 +13,29 @@ space
 class Cloud {
 
     constructor(id, name, type, space) {
-        this.id = id;
+
+        this.id = parseInt(id);
         this.name = name;
         this.space = space;
-        switch (type) {
+
+        console.log(type);
+
+        switch (parseInt(type)) {
             case 1:
                 this.type = 'Plunksniniai';
+                break;
             case 2:
                 this.type = 'Plunksniniai kamuoliniai';
+                break;
             case 3:
                 this.type = 'Kamuoliniai';
+                break;
             case 4:
                 this.type = 'Liūtiniai kamuoliniai';
+                break;
             case 5:
                 this.type = 'Sluoksniniai';
+                break;
             default:
                 this.type = 'Kitas';
         }
@@ -75,14 +84,19 @@ class Db {
             switch (c.type) {
                 case 'Plunksniniai':
                     type = 1;
+                    break;
                 case 'Plunksniniai kamuoliniai':
                     type = 2;
+                    break;
                 case 'Kamuoliniai':
                     type = 3;
+                    break;
                 case 'Liūtiniai kamuoliniai':
                     type = 4;
+                    break;
                 case 'Sluoksniniai':
                     type = 5;
+                    break;
                 default:
                     type = 0;
             }
