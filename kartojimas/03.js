@@ -1,3 +1,9 @@
+function rand(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const str = 'Debesėlis1118';
 
 console.log(str[str.length - 1]);
@@ -72,3 +78,22 @@ for (let i = 0; i < karabasas.length; i++) {
 }
 
 console.log(a2Zvaigzdute);
+
+
+let a1;
+
+do {
+    a1 = rand(222, 333);
+} while (!(a1 % 2));
+
+console.log(a1);
+
+
+const ab = '   arakadarab';
+let eilNr = -1;
+
+do {
+    eilNr++;
+} while (ab[eilNr] != 'b' && ab[eilNr] != undefined);
+
+console.log(ab.length == eilNr ? 'No B' : eilNr + 1);
