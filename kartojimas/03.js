@@ -59,3 +59,16 @@ for (let i = 0; i < karabasas.length; i++) {
 }
 
 console.log(aZvaigzdute);
+
+
+let a2Zvaigzdute = '';
+for (let i = 0; i < karabasas.length; i++) {
+
+    if (karabasas[i + 1] == 'a') {
+        a2Zvaigzdute += '*';
+    } else {
+        a2Zvaigzdute += karabasas[i];
+    }
+}
+
+console.log(a2Zvaigzdute);
