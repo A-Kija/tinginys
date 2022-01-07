@@ -36,5 +36,26 @@ let kasAntra = '';
 for (let i = 0; i < karabasas.length; i += 2) {
     kasAntra += karabasas[i];
 }
+console.log(kasAntra);
+kasAntra = '';
+
+for (let i = 0; i < karabasas.length; i++) {
+
+    if (i % 2 == 0) {
+        kasAntra += karabasas[i];
+    }
+}
 
 console.log(kasAntra);
+
+let aZvaigzdute = '';
+for (let i = 0; i < karabasas.length; i++) {
+
+    if (karabasas[i] == 'a') {
+        aZvaigzdute += '*';
+    } else {
+        aZvaigzdute += karabasas[i];
+    }
+}
+
+console.log(aZvaigzdute);
