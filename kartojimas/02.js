@@ -12,6 +12,8 @@ for (let k = 0; k < 11; k++) {
     for (let i = 0; i < iki; i++) {
         skirtingoIlgio += 'X'
     }
-    console.log(skirtingoIlgio);
+    if (skirtingoIlgio.length > 7) {
+        console.log(skirtingoIlgio, skirtingoIlgio.length);
+    }
 
 }
