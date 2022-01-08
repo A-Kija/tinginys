@@ -96,3 +96,66 @@ for (let i = 0; i < seas.length; i++) {
     seasCount.push(seas[i].length)
 }
 console.log(seasCount);
+
+
+const seasArray = [];
+
+for (let i = 0; i < 5; i++) {
+    seasArray.push(seas);
+}
+
+console.log(seasArray);
+
+for (let i = 0; i < seasArray.length; i++) {
+
+    for (let k = 0; k < seasArray[i].length; k++) {
+
+        console.log(seasArray[i][k]);
+
+    }
+
+}
+
+const array5X5 = [];
+
+for (let i = 0; i < 5; i++) {
+
+    const array5 = [];
+
+    for (let k = 0; k < 5; k++) {
+
+        array5.push(rand(1, 10));
+    }
+
+    array5X5.push(array5);
+}
+
+console.log(array5X5);
+
+
+const xo = [];
+
+for (let i = 0; i < 3; i++) {
+
+    const a3 = [];
+
+    for (let k = 0; k < 3; k++) {
+
+        a3.push(rand(0, 1) ? 'X' : 'O');
+    }
+
+    xo.push(a3);
+}
+
+let is = 'no';
+const check = ['X', 'O'];
+for (let i = 0; i < check.length; i++) {
+    const a = check[i];
+    if ((xo[0][0] == a && xo[1][1] == a && xo[2][2] == a) ||
+        (xo[0][2] == a && xo[1][1] == a && xo[2][0] == a)) {
+        is = 'yes';
+        break;
+    }
+}
+
+console.log(xo, is);
