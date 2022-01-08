@@ -51,12 +51,28 @@ array.push('Mikis');
 array.push('Mausas');
 console.log(array);
 
-// const seas = ['Black Sea', 'Caribbean Sea', 'North Sea', 'Baltic Sea'];
+const seas = ['BlackSea', 'CaribbeanSea', 'NorthSea', 'BalticSea'];
 
 const randArray = [];
 
 for (let i = 0; i < 10; i++) {
+
     randArray.push(rand(5, 20));
 }
 
 console.log(randArray);
+
+
+let letterSum = 0;
+for (let i = 0; i < seas.length; i++) {
+    letterSum += seas[i].length;
+}
+
+console.log(letterSum);
+
+
+for (let i = 0; i < seas.length; i++) {
+    for (let k = 0; k < seas[i].length; k++) {
+        console.log(seas[i][k]);
+    }
+}
