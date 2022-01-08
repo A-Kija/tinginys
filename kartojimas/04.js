@@ -76,3 +76,23 @@ for (let i = 0; i < seas.length; i++) {
         console.log(seas[i][k]);
     }
 }
+
+let seaA = 0;
+let seaE = 0;
+
+for (let i = 0; i < seas.length; i++) {
+    for (let k = 0; k < seas[i].length; k++) {
+        if (seas[i][k] == 'a') {
+            seaA++;
+        } else if (seas[i][k] == 'e') {
+            seaE++;
+        }
+    }
+}
+
+console.log('A: ', seaA, 'B: ', seaE);
+const seasCount = [];
+for (let i = 0; i < seas.length; i++) {
+    seasCount.push(seas[i].length)
+}
+console.log(seasCount);
